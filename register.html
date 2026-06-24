@@ -1,3 +1,6 @@
+The code got cut off — the bottom half is missing including the button and script. Paste the full code into GitHub replacing everything with this:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,16 +32,8 @@
       justify-content: space-between;
       padding: 0 40px;
     }
-    nav img {
-      height: 120px;
-      display: block;
-    }
-    .nav-line {
-      height: 2px;
-      background: #B5713A;
-      margin-left: 40px;
-      margin-top: 6px;
-    }
+    nav img { height: 120px; display: block; }
+    .nav-line { height: 2px; background: #B5713A; margin-left: 40px; margin-top: 6px; }
     .nav-info a {
       color: #B5713A;
       text-decoration: none;
@@ -48,11 +43,7 @@
       transition: color 0.3s;
     }
     .nav-info a:hover { color: #D4956A; }
-    .page {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 220px 40px 80px;
-    }
+    .page { max-width: 640px; margin: 0 auto; padding: 220px 40px 80px; }
     h1 {
       font-size: 1.6rem;
       font-weight: 200;
@@ -302,4 +293,41 @@
         <label for="marketing">I would like to receive marketing communications, news and updates from 12Astra.</label>
       </div>
 
-      <p class="disclaimer">Registering interest
+      <p class="disclaimer">Registering interest does not guarantee membership. Membership is subject to application and approval.</p>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="success" id="success">
+      Thank you.<br>We'll be in touch.
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {};
+      new FormData(form).forEach((val, key) => data[key] = val);
+      data.consent = document.getElementById('consent').checked ? 'Yes' : 'No';
+      data.privacy = document.getElementById('privacy').checked ? 'Yes' : 'No';
+      data.marketing = document.getElementById('marketing').checked ? 'Yes' : 'No';
+
+      try {
+        await fetch('https://script.google.com/macros/s/AKfycbyyxmeRXhsJAvJ0l0J51TbdDRAkJ3CrDvkwxj0-iRWl17u0oyFJYGLzcb8nyg1SmYY2/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        form.style.display = 'none';
+        document.getElementById('success').style.display = 'block';
+      } catch(err) {
+        alert('Something went wrong. Please try again.');
+      }
+    });
+  </script>
+
+</body>
+</html>
+```
