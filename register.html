@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>12astra — Register Interest</title>
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html, body {
       min-height: 100%;
       background: #2C1600;
-      color: #B5713A;
+      color: #C4813A;
       font-family: 'Josefin Sans', sans-serif;
-      font-weight: 300;
+      font-weight: 400;
     }
 
     nav {
@@ -46,7 +46,7 @@
     }
 
     .nav-info a {
-      color: #B5713A;
+      color: #C4813A;
       text-decoration: none;
       font-size: 0.78rem;
       letter-spacing: 0.22em;
@@ -64,11 +64,11 @@
 
     h1 {
       font-size: 1.6rem;
-      font-weight: 200;
+      font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       margin-bottom: 48px;
-      border-bottom: 1px solid rgba(181,113,58,0.3);
+      border-bottom: 1px solid rgba(196,129,58,0.3);
       padding-bottom: 20px;
     }
 
@@ -78,15 +78,16 @@
 
     label {
       display: block;
-      font-size: 0.72rem;
+      font-size: 0.76rem;
+      font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       margin-bottom: 8px;
-      color: #B5713A;
+      color: #C4813A;
     }
 
     label span {
-      color: rgba(181,113,58,0.5);
+      color: rgba(196,129,58,0.5);
       font-size: 0.65rem;
       margin-left: 6px;
       text-transform: none;
@@ -100,11 +101,11 @@
       width: 100%;
       background: transparent;
       border: none;
-      border-bottom: 1px solid rgba(181,113,58,0.4);
+      border-bottom: 1px solid rgba(196,129,58,0.4);
       color: #D4956A;
       font-family: 'Josefin Sans', sans-serif;
-      font-weight: 300;
-      font-size: 0.9rem;
+      font-weight: 400;
+      font-size: 0.95rem;
       letter-spacing: 0.1em;
       padding: 8px 0;
       outline: none;
@@ -112,7 +113,7 @@
     }
 
     input:focus, textarea:focus {
-      border-bottom-color: #B5713A;
+      border-bottom-color: #C4813A;
     }
 
     textarea {
@@ -131,7 +132,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       letter-spacing: 0.1em;
       text-transform: none;
       cursor: pointer;
@@ -142,7 +143,7 @@
       appearance: none;
       width: 14px;
       height: 14px;
-      border: 1px solid #B5713A;
+      border: 1px solid #C4813A;
       border-radius: 50%;
       flex-shrink: 0;
       position: relative;
@@ -153,7 +154,7 @@
       content: '';
       width: 6px;
       height: 6px;
-      background: #B5713A;
+      background: #C4813A;
       border-radius: 50%;
       position: absolute;
       top: 50%; left: 50%;
@@ -161,8 +162,8 @@
     }
 
     .hint {
-      font-size: 0.68rem;
-      color: rgba(181,113,58,0.5);
+      font-size: 0.72rem;
+      color: rgba(196,129,58,0.6);
       line-height: 1.7;
       margin-bottom: 10px;
       letter-spacing: 0.05em;
@@ -179,7 +180,7 @@
       appearance: none;
       width: 14px;
       height: 14px;
-      border: 1px solid #B5713A;
+      border: 1px solid #C4813A;
       flex-shrink: 0;
       margin-top: 2px;
       cursor: pointer;
@@ -191,11 +192,11 @@
       position: absolute;
       top: -2px; left: 1px;
       font-size: 11px;
-      color: #B5713A;
+      color: #C4813A;
     }
 
     .checkbox-row label {
-      font-size: 0.72rem;
+      font-size: 0.76rem;
       letter-spacing: 0.08em;
       text-transform: none;
       line-height: 1.6;
@@ -206,10 +207,10 @@
     button {
       margin-top: 40px;
       background: transparent;
-      border: 1px solid #B5713A;
-      color: #B5713A;
+      border: 1px solid #C4813A;
+      color: #C4813A;
       font-family: 'Josefin Sans', sans-serif;
-      font-weight: 300;
+      font-weight: 400;
       font-size: 0.78rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -219,7 +220,7 @@
     }
 
     button:hover {
-      background: #B5713A;
+      background: #C4813A;
       color: #2C1600;
     }
 
@@ -276,8 +277,11 @@
       </div>
 
       <div class="field">
-        <label>Area of London <span>*</span></label>
-        <input type="text" name="areaOfLondon" required />
+        <label>Based in London? <span>*</span></label>
+        <div class="radio-group">
+          <label><input type="radio" name="basedInLondon" value="Yes" required /> Yes</label>
+          <label><input type="radio" name="basedInLondon" value="No" /> No</label>
+        </div>
       </div>
 
       <div class="field">
@@ -303,19 +307,7 @@
 
       <div class="field">
         <label>How did you hear about 12 Astra? <span>*</span></label>
-        <div class="radio-group">
-          <label><input type="radio" name="howDidYouHear" value="Instagram" required /> Instagram</label>
-          <label><input type="radio" name="howDidYouHear" value="TikTok" /> TikTok</label>
-          <label><input type="radio" name="howDidYouHear" value="Friend" /> Friend</label>
-          <label><input type="radio" name="howDidYouHear" value="Google" /> Google</label>
-          <label><input type="radio" name="howDidYouHear" value="Event" /> Event</label>
-          <label><input type="radio" name="howDidYouHear" value="Other" /> Other</label>
-        </div>
-      </div>
-
-      <div class="field">
-        <label>Anything else you'd like us to know? <span>Optional</span></label>
-        <textarea name="anythingElse"></textarea>
+        <input type="text" name="howDidYouHear" required />
       </div>
 
       <div class="checkbox-row">
