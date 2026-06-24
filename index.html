@@ -7,27 +7,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html, body {
       height: 100%;
       background: #2C1600;
     }
-
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-between;
       padding: 28px 40px;
+      border-bottom: 1px solid #B5713A;
     }
-
     nav img {
       height: 120px;
       display: block;
       mix-blend-mode: multiply;
     }
-
     .nav-info a {
       color: #B5713A;
       text-decoration: none;
@@ -38,18 +35,15 @@
       text-transform: uppercase;
       transition: color 0.3s;
     }
-
     .nav-info a:hover {
       color: #D4956A;
     }
-
     .center {
       height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-
     .center a {
       color: #B5713A;
       text-decoration: none;
@@ -62,7 +56,6 @@
       padding-bottom: 5px;
       transition: color 0.3s, border-color 0.3s;
     }
-
     .center a:hover {
       color: #D4956A;
       border-color: #D4956A;
@@ -70,17 +63,14 @@
   </style>
 </head>
 <body>
-
   <nav>
     <img src="darklogo.png" alt="12astra" />
     <div class="nav-info">
       <a href="information.html">Information</a>
     </div>
   </nav>
-
   <div class="center">
     <a href="register.html">Register Interest</a>
   </div>
-
 </body>
 </html>
