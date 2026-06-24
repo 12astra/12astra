@@ -1,1 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>12astra — Register Interest</title>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html, body {
+      min-height: 100%;
+      background: #2C1600;
+      color: #B5713A;
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 300;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 0 0 0;
+      z-index: 100;
+      background: #2C1600;
+    }
+
+    .nav-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+
+    nav img {
+      height: 120px;
+      display: block;
+      mix-blend-mode: multiply;
+    }
+
+    .nav-line {
+      height: 2px;
+      background: #B5713A;
+      margin-left: 40px;
+      margin-top: 6px;
+    }
+
+    .nav-info a {
+      color: #B5713A;
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-info a:hover { color: #D4956A; }
+
+    .page {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 220px 40px 80px;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 200;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+      border-bottom: 1px solid rgba(181,113,58,0.3);
+      padding-bottom: 20px;
+    }
+
+    .field {
+      margin-bottom: 32px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: #B5713A;
+    }
+
+    label span {
+      color: rgba(181,113,58,0.5);
+      font-size: 0.65rem;
+      margin-left: 6px;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(181,113,58,0.4);
+      color: #D4956A;
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 300;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      padding: 8px 0;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-bottom-color: #B5713A;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+      line-height: 1.6;
+    }
+
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: none;
+      cursor: pointer;
+      margin-bottom: 0;
+    }
+
+    input[type="radio"] {
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      border: 1px solid #B5713A;
+      border-radius: 50%;
+      flex-shrink: 0;
+      position: relative;
+      cursor: pointer;
+    }
+
+    input[type="radio"]:checked::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #B5713A;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .hint {
+      font-size: 0.68rem;
+      color: rgba(181,113,58,0.5);
+      line-height: 1.7;
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    input[type="checkbox"] {
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      border: 1px solid #B5713A;
+      flex-shrink: 0;
+      margin-top: 2px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    input[type="checkbox"]:checked::after {
+      content: '✓';
+      position: absolute;
+      top: -2px; left: 1px;
+      font-size: 11px;
+      color: #B5713A;
+    }
+
+    .checkbox-row label {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: none;
+      line-height: 1.6;
+      cursor: pointer;
+      margin-bottom: 0;
+    }
+
+    button {
+      margin-top: 40px;
+      background: transparent;
+      border: 1px solid #B5713A;
+      color: #B5713A;
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 300;
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 14px 48px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    button:hover {
+      background: #B5713A;
+      color: #2C1600;
+    }
+
+    .success {
+      display: none;
+      text-align: center;
+      padding: 60px 0;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      line-height: 2;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-top">
+      <a href="index.html"><img src="darklogonew.png" alt="12astra" /></a>
+      <div class="nav-info">
+        <a href="information.html">Information</a>
+      </div>
+    </div>
+    <div class="nav-line"></div>
+  </nav>
+
+  <div class="page">
+    <h1>Register Interest</h1>
+
+    <form id="form">
+      <div class="field">
+        <label>First Name <span>*</span></label>
+        <input type="text" name="firstName" required />
+      </div>
+
+      <div class="field">
+        <label>Last Name <span>*</span></label>
+        <input type="text" name="lastName" required />
+      </div>
+
+      <div class="field">
+        <label>Email Address <span>*</span></label>
+        <input type="email" name="email" required />
+      </div>
+
+      <div class="field">
+        <label>Occupation <span>*</span></label>
+        <input type="text" name="occupation" required />
+      </div>
+
+      <div class="field">
+        <label>Age <span>*</span></label>
+        <input type="number" name="age" min="18" max="99" required />
+      </div>
+
+      <div class="field">
+        <label>Area of London <span>*</span></label>
+        <input type="text" name="areaOfLondon" required />
+      </div>
+
+      <div class="field">
+        <label>Instagram <span>Optional</span></label>
+        <input type="text" name="instagram" />
+      </div>
+
+      <div class="field">
+        <label>Sexuality</label>
+        <div class="radio-group">
+          <label><input type="radio" name="sexuality" value="Gay" /> Gay</label>
+          <label><input type="radio" name="sexuality" value="Bisexual" /> Bisexual</label>
+          <label><input type="radio" name="sexuality" value="Other" /> Other</label>
+          <label><input type="radio" name="sexuality" value="Prefer not to say" /> Prefer not to say</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Interests <span>*</span></label>
+        <p class="hint">Please tell us about your interests. There are no right or wrong answers, and your response will not affect your application.<br><br>We use this information to better understand our community and help connect members with similar interests, events and conversations.<br><br>Examples might include clubbing, museums, fitness, reading, travel, film, dining, technology, fashion, music or anything else that interests you.</p>
+        <textarea name="interests" required></textarea>
+      </div>
+
+      <div class="field">
+        <label>How did you hear about 12 Astra? <span>*</span></label>
+        <div class="radio-group">
+          <label><input type="radio" name="howDidYouHear" value="Instagram" required /> Instagram</label>
+          <label><input type="radio" name="howDidYouHear" value="TikTok" /> TikTok</label>
+          <label><input type="radio" name="howDidYouHear" value="Friend" /> Friend</label>
+          <label><input type="radio" name="howDidYouHear" value="Google" /> Google</label>
+          <label><input type="radio" name="howDidYouHear" value="Event" /> Event</label>
+          <label><input type="radio" name="howDidYouHear" value="Other" /> Other</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Anything else you'd like us to know? <span>Optional</span></label>
+        <textarea name="anythingElse"></textarea>
+      </div>
+
+      <div class="checkbox-row">
+        <input type="checkbox" id="consent" name="consent" required />
+        <label for="consent">I agree to be contacted by 12 Astra regarding membership opportunities, events and club updates.</label>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="success" id="success">
+      Thank you.<br>We'll be in touch.
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {};
+      new FormData(form).forEach((val, key) => data[key] = val);
+      data.consent = document.getElementById('consent').checked ? 'Yes' : 'No';
+
+      try {
+        await fetch('https://script.google.com/macros/s/AKfycbwuxSd-_yZvjIqi0R3wwysRKpgZ2SFtr9BWI6rQLeV9O1Fo3N4gEGXH9QLhaPegd215/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        form.style.display = 'none';
+        document.getElementById('success').style.display = 'block';
+      } catch(err) {
+        alert('Something went wrong. Please try again.');
+      }
+    });
+  </script>
+
+</body>
+</html>
