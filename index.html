@@ -17,13 +17,22 @@
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      padding: 28px 40px;
-      border-bottom: 1px solid #B5713A;
+      padding: 20px 40px;
+    }
+    .nav-left {
+      display: flex;
+      flex-direction: column;
     }
     nav img {
       height: 120px;
       display: block;
       mix-blend-mode: multiply;
+    }
+    .nav-line {
+      height: 2px;
+      background: #B5713A;
+      width: 100%;
+      margin-top: 4px;
     }
     .nav-info a {
       color: #B5713A;
@@ -64,7 +73,10 @@
 </head>
 <body>
   <nav>
-    <img src="darklogo.png" alt="12astra" />
+    <div class="nav-left">
+      <img src="darklogo.png" alt="12astra" />
+      <div class="nav-line"></div>
+    </div>
     <div class="nav-info">
       <a href="information.html">Information</a>
     </div>
