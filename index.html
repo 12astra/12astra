@@ -46,9 +46,7 @@
       text-transform: uppercase;
       transition: color 0.3s;
     }
-    .nav-info a:hover {
-      color: #D4956A;
-    }
+    .nav-info a:hover { color: #D4956A; }
     .center {
       height: 100vh;
       display: flex;
@@ -70,6 +68,12 @@
     .center a:hover {
       color: #D4956A;
       border-color: #D4956A;
+    }
+    @media (max-width: 768px) {
+      nav img { height: 60px; }
+      .nav-top { padding: 0 20px; align-items: center; }
+      .nav-line { margin-left: 20px; }
+      .center a { font-size: 1rem; }
     }
   </style>
 </head>
