@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html, body {
       min-height: 100%;
       background: #2C1600;
@@ -15,7 +14,6 @@
       font-family: 'Josefin Sans', sans-serif;
       font-weight: 200;
     }
-
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -24,26 +22,22 @@
       padding: 20px 0 0 0;
       z-index: 100;
     }
-
     .nav-top {
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
       padding: 0 40px;
     }
-
     nav img {
       height: 120px;
       display: block;
     }
-
     .nav-line {
       height: 2px;
       background: #B5713A;
       margin-left: 40px;
       margin-top: 6px;
     }
-
     .nav-info a {
       color: #B5713A;
       text-decoration: none;
@@ -52,15 +46,12 @@
       text-transform: uppercase;
       transition: color 0.3s;
     }
-
     .nav-info a:hover { color: #D4956A; }
-
     .page {
       max-width: 640px;
       margin: 0 auto;
       padding: 220px 40px 80px;
     }
-
     h1 {
       font-size: 1.6rem;
       font-weight: 200;
@@ -70,11 +61,7 @@
       border-bottom: 1px solid rgba(181,113,58,0.3);
       padding-bottom: 20px;
     }
-
-    .field {
-      margin-bottom: 32px;
-    }
-
+    .field { margin-bottom: 32px; }
     label {
       display: block;
       font-size: 0.76rem;
@@ -84,7 +71,6 @@
       margin-bottom: 8px;
       color: #B5713A;
     }
-
     label span {
       color: rgba(181,113,58,0.5);
       font-size: 0.65rem;
@@ -92,10 +78,9 @@
       text-transform: none;
       letter-spacing: 0;
     }
-
     input[type="text"],
     input[type="email"],
-    input[type="number"],
+    input[type="date"],
     textarea,
     select {
       width: 100%;
@@ -111,33 +96,14 @@
       outline: none;
       transition: border-color 0.3s;
     }
-
-    select {
-      appearance: none;
-      cursor: pointer;
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(0.6) sepia(1) saturate(2) hue-rotate(345deg);
     }
-
-    select option {
-      background: #2C1600;
-      color: #D4956A;
-    }
-
-    input:focus, textarea:focus, select:focus {
-      border-bottom-color: #B5713A;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-      line-height: 1.6;
-    }
-
-    .radio-group {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
+    select { appearance: none; cursor: pointer; }
+    select option { background: #2C1600; color: #D4956A; }
+    input:focus, textarea:focus, select:focus { border-bottom-color: #B5713A; }
+    textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+    .radio-group { display: flex; flex-direction: column; gap: 12px; }
     .radio-group label {
       display: flex;
       align-items: center;
@@ -148,7 +114,6 @@
       cursor: pointer;
       margin-bottom: 0;
     }
-
     input[type="radio"] {
       appearance: none;
       width: 14px;
@@ -159,7 +124,6 @@
       position: relative;
       cursor: pointer;
     }
-
     input[type="radio"]:checked::after {
       content: '';
       width: 6px;
@@ -170,7 +134,6 @@
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
     }
-
     .hint {
       font-size: 0.72rem;
       color: rgba(181,113,58,0.6);
@@ -178,14 +141,12 @@
       margin-bottom: 10px;
       letter-spacing: 0.05em;
     }
-
     .checkbox-row {
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      margin-top: 40px;
+      margin-top: 24px;
     }
-
     input[type="checkbox"] {
       appearance: none;
       width: 14px;
@@ -196,7 +157,6 @@
       cursor: pointer;
       position: relative;
     }
-
     input[type="checkbox"]:checked::after {
       content: '✓';
       position: absolute;
@@ -204,7 +164,6 @@
       font-size: 11px;
       color: #B5713A;
     }
-
     .checkbox-row label {
       font-size: 0.76rem;
       letter-spacing: 0.08em;
@@ -213,15 +172,19 @@
       cursor: pointer;
       margin-bottom: 0;
     }
-
+    .checkbox-row label a {
+      color: #B5713A;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(181,113,58,0.4);
+    }
+    .checkbox-row label a:hover { color: #D4956A; }
     .disclaimer {
       font-size: 0.68rem;
       color: rgba(181,113,58,0.5);
       letter-spacing: 0.08em;
       line-height: 1.8;
-      margin-top: 16px;
+      margin-top: 24px;
     }
-
     button {
       margin-top: 40px;
       background: transparent;
@@ -236,12 +199,7 @@
       cursor: pointer;
       transition: background 0.3s, color 0.3s;
     }
-
-    button:hover {
-      background: #B5713A;
-      color: #2C1600;
-    }
-
+    button:hover { background: #B5713A; color: #2C1600; }
     .success {
       display: none;
       text-align: center;
@@ -254,7 +212,6 @@
   </style>
 </head>
 <body>
-
   <nav>
     <div class="nav-top">
       <a href="index.html"><img src="darklogo.png" alt="12astra" /></a>
@@ -285,13 +242,13 @@
       </div>
 
       <div class="field">
-        <label>Occupation <span>*</span></label>
-        <input type="text" name="occupation" required />
+        <label>Date of Birth <span>*</span></label>
+        <input type="date" name="dateOfBirth" required />
       </div>
 
       <div class="field">
-        <label>Age <span>*</span></label>
-        <input type="number" name="age" min="18" max="99" required />
+        <label>Occupation <span>*</span></label>
+        <input type="text" name="occupation" required />
       </div>
 
       <div class="field">
@@ -325,47 +282,23 @@
       </div>
 
       <div class="field">
-        <label>How did you hear about 12 Astra? <span>*</span></label>
+        <label>How did you hear about 12Astra? <span>*</span></label>
         <input type="text" name="howDidYouHear" required />
       </div>
 
       <div class="checkbox-row">
         <input type="checkbox" id="consent" name="consent" required />
-        <label for="consent">I agree that 12 Astra may store and use the information provided to contact me regarding membership opportunities, events and club updates.</label>
+        <label for="consent">I agree that 12Astra may store and use the information I provide for the purposes of administering my registration of interest, communicating with me about membership opportunities, events and club updates, and managing my relationship with the club.</label>
       </div>
 
-      <p class="disclaimer">By submitting this form, you acknowledge that registering interest does not guarantee membership.</p>
+      <div class="checkbox-row">
+        <input type="checkbox" id="privacy" name="privacy" required />
+        <label for="privacy">I have read and understood the <a href="privacy.html">Privacy Policy</a>.</label>
+      </div>
 
-      <button type="submit">Submit</button>
-    </form>
+      <div class="checkbox-row">
+        <input type="checkbox" id="marketing" name="marketing" />
+        <label for="marketing">I would like to receive marketing communications, news and updates from 12Astra.</label>
+      </div>
 
-    <div class="success" id="success">
-      Thank you.<br>We'll be in touch.
-    </div>
-  </div>
-
-  <script>
-    document.getElementById('form').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = {};
-      new FormData(form).forEach((val, key) => data[key] = val);
-      data.consent = document.getElementById('consent').checked ? 'Yes' : 'No';
-
-      try {
-        await fetch('https://script.google.com/macros/s/AKfycbyyxmeRXhsJAvJ0l0J51TbdDRAkJ3CrDvkwxj0-iRWl17u0oyFJYGLzcb8nyg1SmYY2/exec', {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-        form.style.display = 'none';
-        document.getElementById('success').style.display = 'block';
-      } catch(err) {
-        alert('Something went wrong. Please try again.');
-      }
-    });
-  </script>
-
-</body>
-</html>
+      <p class="disclaimer">Registering interest
