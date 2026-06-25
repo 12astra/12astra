@@ -29,7 +29,7 @@
     nav img {
       height: 10vw;
       max-height: 120px;
-      min-height: 60px;
+      min-height: 50px;
       display: block;
       mix-blend-mode: multiply;
     }
@@ -38,7 +38,6 @@
       height: 20px;
       margin-top: -14px;
     }
-    /* Bottom line — starts just after logo */
     .line-1 {
       position: absolute;
       height: 1px;
@@ -47,7 +46,6 @@
       right: 0px;
       top: 14px;
     }
-    /* Middle line — starts after "a" in astra */
     .line-2 {
       position: absolute;
       height: 2px;
@@ -56,7 +54,6 @@
       right: 0px;
       top: 7px;
     }
-    /* Top line */
     .line-3 {
       position: absolute;
       height: 2px;
@@ -112,6 +109,14 @@
       transition: color 0.3s, border-color 0.3s;
     }
     .register-link:hover { color: #D4956A; border-color: #D4956A; }
+
+    @media (max-width: 768px) {
+      .line-1 { left: 22vw; }
+      .line-2 { left: 32vw; }
+      .line-3 { left: 38vw; }
+      .register-link { font-size: 1rem; }
+      .about-link { font-size: 0.78rem; }
+    }
   </style>
 </head>
 <body>
@@ -127,9 +132,9 @@
   </nav>
 
   <svg class="curved-lines" viewBox="0 0 80 700" xmlns="http://www.w3.org/2000/svg" fill="none">
-    <path d="M 20 140 L 20 590 Q 20 610 -10 620" stroke="#B5713A" stroke-width="1.5" opacity="0.5"/>
-    <path d="M 34 70 L 34 605 Q 34 625 -10 635" stroke="#B5713A" stroke-width="2" opacity="0.65"/>
-    <path d="M 48 110 L 48 620 Q 48 640 -10 650" stroke="#B5713A" stroke-width="2.5" opacity="0.85"/>
+    <path d="M 20 140 L 20 590 Q -10 610 -10 620" stroke="#B5713A" stroke-width="1.5" opacity="0.5"/>
+    <path d="M 34 70 L 34 605 Q -10 625 -10 635" stroke="#B5713A" stroke-width="2" opacity="0.65"/>
+    <path d="M 48 110 L 48 620 Q -10 640 -10 650" stroke="#B5713A" stroke-width="2.5" opacity="0.85"/>
   </svg>
 
   <div class="center">
