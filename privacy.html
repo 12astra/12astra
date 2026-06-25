@@ -10,7 +10,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body {
       min-height: 100%;
-      background: #2C1600;
+      background: #1C0E00;
       color: #B5713A;
       font-family: 'Josefin Sans', sans-serif;
       font-weight: 200;
@@ -22,22 +22,48 @@
       flex-direction: column;
       padding: 20px 0 0 0;
       z-index: 100;
+      background: #1C0E00;
     }
     .nav-top {
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      padding: 0 40px;
+      padding: 0 3vw;
     }
     nav img {
-      height: 120px;
+      height: 10vw;
+      max-height: 120px;
+      min-height: 50px;
       display: block;
     }
-    .nav-line {
+    .nav-lines {
+      position: relative;
+      height: 20px;
+      margin-top: -14px;
+    }
+    .line-1 {
+      position: absolute;
+      height: 1px;
+      background: #B5713A;
+      left: 3vw;
+      right: 0px;
+      top: 14px;
+    }
+    .line-2 {
+      position: absolute;
       height: 2px;
       background: #B5713A;
-      margin-left: 40px;
-      margin-top: 6px;
+      left: 13vw;
+      right: 0px;
+      top: 7px;
+    }
+    .line-3 {
+      position: absolute;
+      height: 2px;
+      background: #B5713A;
+      left: 16vw;
+      right: 0px;
+      top: 0px;
     }
     .nav-info a {
       color: #B5713A;
@@ -93,6 +119,10 @@
       border-bottom: 1px solid rgba(181,113,58,0.4);
     }
     a.email:hover { color: #D4956A; }
+    @media (max-width: 768px) {
+      .line-2 { left: 38vw; }
+      .line-3 { left: 44vw; }
+    }
   </style>
 </head>
 <body>
@@ -103,14 +133,16 @@
         <a href="register.html">Register Interest</a>
       </div>
     </div>
-    <div class="nav-line"></div>
+    <div class="nav-lines">
+      <div class="line-3"></div>
+      <div class="line-2"></div>
+      <div class="line-1"></div>
+    </div>
   </nav>
   <div class="page">
     <h1>Privacy Policy</h1>
     <span class="date">Last updated: 24/06/2026</span>
-
     <p>12Astra collects information provided through its register interest form, which may include your name, email address, date of birth, occupation, area of London, interests, social media handles and any other information you choose to provide.</p>
-
     <p>This information is collected for the purposes of:</p>
     <ul>
       <li>Managing registrations of interest.</li>
@@ -118,13 +150,9 @@
       <li>Providing updates about 12Astra, including membership opportunities, events and club news.</li>
       <li>Better understanding the interests and composition of the community.</li>
     </ul>
-
     <p>Your information will not be sold to third parties.</p>
-
     <p>Information is stored securely and access is restricted to those involved in the administration of 12Astra.</p>
-
     <p>You may request access to, correction of, or deletion of your personal information at any time by contacting: <a class="email" href="mailto:info@12astra.com">info@12astra.com</a></p>
-
     <p>By submitting information through the website, you acknowledge that 12Astra may process your information in accordance with this Privacy Policy.</p>
   </div>
 </body>
