@@ -36,6 +36,11 @@
       min-height: 50px;
       display: block;
     }
+    .nav-info {
+      position: relative;
+      z-index: 200;
+      padding-bottom: 8px;
+    }
     .nav-lines {
       position: relative;
       height: 20px;
@@ -261,27 +266,22 @@
         <label>First Name <span>*</span></label>
         <input type="text" name="firstName" required />
       </div>
-
       <div class="field">
         <label>Last Name <span>*</span></label>
         <input type="text" name="lastName" required />
       </div>
-
       <div class="field">
         <label>Email Address <span>*</span></label>
         <input type="email" name="email" required />
       </div>
-
       <div class="field">
         <label>Date of Birth <span>*</span></label>
         <input type="date" name="dateOfBirth" required />
       </div>
-
       <div class="field">
         <label>Occupation <span>*</span></label>
         <input type="text" name="occupation" required />
       </div>
-
       <div class="field">
         <label>Based in London? <span>*</span></label>
         <div class="radio-group">
@@ -289,12 +289,10 @@
           <label><input type="radio" name="basedInLondon" value="No" /> No</label>
         </div>
       </div>
-
       <div class="field">
         <label>Instagram <span>Optional</span></label>
         <input type="text" name="instagram" />
       </div>
-
       <div class="field">
         <label>Sexuality <span>Optional</span></label>
         <select name="sexuality">
@@ -305,35 +303,28 @@
           <option value="Prefer not to say">Prefer not to say</option>
         </select>
       </div>
-
       <div class="field">
         <label>Interests <span>*</span></label>
         <p class="hint">No right or wrong answers — this helps us connect you with people who share similar interests.</p>
         <textarea name="interests" required></textarea>
       </div>
-
       <div class="field">
         <label>How did you hear about 12Astra? <span>*</span></label>
         <input type="text" name="howDidYouHear" required />
       </div>
-
       <div class="checkbox-row">
         <input type="checkbox" id="consent" name="consent" required />
         <label for="consent">I agree that 12Astra may store and use the information I provide for the purposes of administering my registration of interest, communicating with me about membership opportunities, events and club updates, and managing my relationship with the club.</label>
       </div>
-
       <div class="checkbox-row">
         <input type="checkbox" id="privacy" name="privacy" required />
         <label for="privacy">I have read and understood the <a href="privacy.html">Privacy Policy</a>.</label>
       </div>
-
       <div class="checkbox-row">
         <input type="checkbox" id="marketing" name="marketing" />
         <label for="marketing">I would like to receive marketing communications, news and updates from 12Astra.</label>
       </div>
-
       <p class="disclaimer">Registering interest does not guarantee membership. Membership is subject to application and approval.</p>
-
       <button type="submit">Submit</button>
     </form>
 
