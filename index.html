@@ -44,8 +44,6 @@
       height: 20px;
       margin-top: -14px;
     }
-
-    /* Bottom line — longest, sits directly under logo */
     .line-1 {
       position: absolute;
       height: 1px;
@@ -54,8 +52,6 @@
       right: 0px;
       top: 14px;
     }
-
-    /* Middle line */
     .line-2 {
       position: absolute;
       height: 2px;
@@ -64,8 +60,6 @@
       right: 0px;
       top: 7px;
     }
-
-    /* Top line */
     .line-3 {
       position: absolute;
       height: 2px;
@@ -77,18 +71,20 @@
 
     /* ── CURVED LINES ON LEFT ──
        width = how wide the container is
+       To move ALL lines up or down together:
+         change the L y value and Q cy and end y value by the same amount on all three paths
        Each path:
-         M x y = starting point (x = horizontal, y = where line starts vertically)
+         M x y = starting point
          L x y = straight line down to here (y = where curve begins)
-         Q cx cy x y = curve (negative x exits off left edge)
+         Q cx cy x y = curve shape and exit point
        stroke-width = thickness
-       opacity = visibility (0-1)
+       opacity = visibility
     */
     .curved-lines {
       position: fixed;
       left: 0;
       top: 0;
-      width: 80px;        /* increase to move lines further right */
+      width: 80px;
       height: 100%;
       pointer-events: none;
       overflow: visible;
@@ -105,7 +101,6 @@
       position: relative;
       z-index: 10;
     }
-
     .about-link {
       color: #B5713A;
       text-decoration: none;
@@ -119,7 +114,6 @@
       transition: color 0.3s, border-color 0.3s;
     }
     .about-link:hover { color: #D4956A; border-color: #D4956A; }
-
     .register-link {
       color: #B5713A;
       text-decoration: none;
@@ -155,30 +149,35 @@
     </div>
   </nav>
 
-  <svg class="curved-lines" viewBox="0 0 80 500" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!--
+    TO MOVE ALL CURVES UP OR DOWN TOGETHER:
+    Add or subtract the same number from every y value in L and Q on all three paths.
+    e.g. to move up by 20: change L 20 450 to L 20 430, Q 20 490 to Q 20 470, -10 488 to -10 468
+  -->
+  <svg class="curved-lines" viewBox="0 0 80 600" xmlns="http://www.w3.org/2000/svg" fill="none">
 
     <!-- Outer line (leftmost) -->
     <path
-      d="M 20 80 L 20 400 Q 20 430 -30 430"
+      d="M 20 80 L 20 450 Q 20 490 -10 488"
       stroke="#B5713A"
-      stroke-width="1.5"     /* thickness */
-      opacity="0.5"          /* visibility */
+      stroke-width="1.5"
+      opacity="0.5"
     />
 
     <!-- Middle line -->
     <path
-      d="M 34 80 L 34 412 Q 34 442 -30 442"
+      d="M 34 80 L 34 462 Q 34 500 -10 502"
       stroke="#B5713A"
-      stroke-width="2"       /* thickness */
-      opacity="0.65"         /* visibility */
+      stroke-width="2"
+      opacity="0.65"
     />
 
-    <!-- Inner line (rightmost, most visible) -->
+    <!-- Inner line (rightmost) -->
     <path
-      d="M 48 80 L 48 424 Q 48 454 -30 454"
+      d="M 48 80 L 48 474 Q 48 514 -10 516"
       stroke="#B5713A"
-      stroke-width="2.5"     /* thickness */
-      opacity="0.85"         /* visibility */
+      stroke-width="2.5"
+      opacity="0.85"
     />
 
   </svg>
