@@ -71,10 +71,8 @@
 
     /* ── CURVED LINES ON LEFT ──
        width = how wide the container is
-       To move ALL lines up or down together:
-         change the L y value and Q cy and end y value by the same amount on all three paths
        Each path:
-         M x y = starting point
+         M x y = starting point (y = how high the line starts — lower number = higher up)
          L x y = straight line down to here (y = where curve begins)
          Q cx cy x y = curve shape and exit point
        stroke-width = thickness
@@ -149,30 +147,25 @@
     </div>
   </nav>
 
-  <!--
-    TO MOVE ALL CURVES UP OR DOWN TOGETHER:
-    Add or subtract the same number from every y value in L and Q on all three paths.
-    e.g. to move up by 20: change L 20 450 to L 20 430, Q 20 490 to Q 20 470, -10 488 to -10 468
-  -->
   <svg class="curved-lines" viewBox="0 0 80 600" xmlns="http://www.w3.org/2000/svg" fill="none">
 
-    <!-- Outer line (leftmost) -->
+    <!-- Outer line (leftmost) — lowest start -->
     <path
-      d="M 20 80 L 20 450 Q 20 490 -10 488"
+      d="M 20 90 L 20 450 Q 20 490 -10 488"
       stroke="#B5713A"
       stroke-width="1.5"
       opacity="0.5"
     />
 
-    <!-- Middle line -->
+    <!-- Middle line — highest start -->
     <path
-      d="M 34 80 L 34 462 Q 34 500 -10 502"
+      d="M 34 70 L 34 462 Q 34 500 -10 502"
       stroke="#B5713A"
       stroke-width="2"
       opacity="0.65"
     />
 
-    <!-- Inner line (rightmost) -->
+    <!-- Inner line (rightmost) — second highest start -->
     <path
       d="M 48 80 L 48 474 Q 48 514 -10 516"
       stroke="#B5713A"
