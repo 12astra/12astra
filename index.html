@@ -11,18 +11,28 @@
     html, body {
       height: 100%;
       background: #2C1600;
+      overflow: hidden;
     }
-    nav {
+
+    .top-line {
       position: fixed;
       top: 0; left: 0; right: 0;
+      height: 3px;
+      background: #B5713A;
+      z-index: 200;
+    }
+
+    nav {
+      position: fixed;
+      top: 3px; left: 0; right: 0;
       display: flex;
       flex-direction: column;
       padding: 20px 0 0 0;
+      z-index: 100;
     }
     .nav-top {
       display: flex;
       align-items: flex-end;
-      justify-content: space-between;
       padding: 0 40px;
     }
     nav img {
@@ -31,29 +41,34 @@
       mix-blend-mode: multiply;
     }
     .nav-line {
-      height: 2px;
+      height: 3px;
       background: #B5713A;
       margin-left: 40px;
       margin-top: 6px;
     }
-    .nav-info a {
-      color: #B5713A;
+
+    .center {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
+      z-index: 10;
+    }
+    .about-link {
+      color: rgba(181,113,58,0.6);
       text-decoration: none;
       font-family: 'Josefin Sans', sans-serif;
-      font-weight: 300;
-      font-size: 0.78rem;
+      font-weight: 200;
+      font-size: 0.72rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       transition: color 0.3s;
     }
-    .nav-info a:hover { color: #D4956A; }
-    .center {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .center a {
+    .about-link:hover { color: #B5713A; }
+    .register-link {
       color: #B5713A;
       text-decoration: none;
       font-family: 'Josefin Sans', sans-serif;
@@ -65,30 +80,51 @@
       padding-bottom: 5px;
       transition: color 0.3s, border-color 0.3s;
     }
-    .center a:hover {
+    .register-link:hover {
       color: #D4956A;
       border-color: #D4956A;
     }
+
+    .arcs {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 300px;
+      height: 300px;
+      z-index: 1;
+    }
+
     @media (max-width: 768px) {
       nav img { height: 60px; }
       .nav-top { padding: 0 20px; align-items: center; }
       .nav-line { margin-left: 20px; }
-      .center a { font-size: 1rem; }
+      .register-link { font-size: 1rem; }
+      .arcs { width: 180px; height: 180px; }
     }
   </style>
 </head>
 <body>
+
+  <div class="top-line"></div>
+
   <nav>
     <div class="nav-top">
       <img src="darklogo.png" alt="12astra" />
-      <div class="nav-info">
-        <a href="about.html">About</a>
-      </div>
     </div>
     <div class="nav-line"></div>
   </nav>
+
+  <!-- Concentric arcs bottom left -->
+  <svg class="arcs" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <path d="M 0 280 Q 0 20 280 20" stroke="#B5713A" stroke-width="1.5" opacity="0.5"/>
+    <path d="M 0 260 Q 0 40 260 40" stroke="#B5713A" stroke-width="1" opacity="0.4"/>
+    <path d="M 0 240 Q 0 60 240 60" stroke="#B5713A" stroke-width="1" opacity="0.3"/>
+  </svg>
+
   <div class="center">
-    <a href="register.html">Register Interest</a>
+    <a class="about-link" href="about.html">About</a>
+    <a class="register-link" href="register.html">Register Interest</a>
   </div>
+
 </body>
 </html>
