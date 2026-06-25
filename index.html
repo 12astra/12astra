@@ -24,10 +24,12 @@
     .nav-top {
       display: flex;
       align-items: flex-end;
-      padding: 0 40px;
+      padding: 0 3vw;
     }
     nav img {
-      height: 120px;
+      height: 10vw;
+      max-height: 120px;
+      min-height: 60px;
       display: block;
       mix-blend-mode: multiply;
     }
@@ -36,27 +38,30 @@
       height: 20px;
       margin-top: -14px;
     }
+    /* Bottom line — starts just after logo */
     .line-1 {
       position: absolute;
       height: 1px;
       background: #B5713A;
-      left: 40px;
+      left: 3vw;
       right: 0px;
       top: 14px;
     }
+    /* Middle line — starts after "a" in astra */
     .line-2 {
       position: absolute;
       height: 2px;
       background: #B5713A;
-      left: 11%;
+      left: 11vw;
       right: 0px;
       top: 7px;
     }
+    /* Top line */
     .line-3 {
       position: absolute;
       height: 2px;
       background: #B5713A;
-      left: 15%;
+      left: 13vw;
       right: 0px;
       top: 0px;
     }
@@ -64,7 +69,8 @@
       position: fixed;
       left: 0;
       top: 0;
-      width: 80px;
+      width: 8vw;
+      max-width: 80px;
       height: 100%;
       pointer-events: none;
       overflow: visible;
@@ -106,16 +112,6 @@
       transition: color 0.3s, border-color 0.3s;
     }
     .register-link:hover { color: #D4956A; border-color: #D4956A; }
-    @media (max-width: 768px) {
-      nav img { height: 60px; }
-      .nav-top { padding: 0 20px; align-items: center; }
-      .register-link { font-size: 1rem; }
-      .about-link { font-size: 0.78rem; }
-      .curved-lines { width: 40px; }
-      .line-1 { left: 20px; }
-      .line-2 { left: 6%; }
-      .line-3 { left: 8%; }
-    }
   </style>
 </head>
 <body>
@@ -131,9 +127,9 @@
   </nav>
 
   <svg class="curved-lines" viewBox="0 0 80 700" xmlns="http://www.w3.org/2000/svg" fill="none">
-    <path d="M 20 140 L 20 590 Q 20 610 -10 600" stroke="#B5713A" stroke-width="1.5" opacity="0.5"/>
-    <path d="M 34 70 L 34 605 Q 34 625 -10 615" stroke="#B5713A" stroke-width="2" opacity="0.65"/>
-    <path d="M 48 110 L 48 620 Q 48 640 -10 630" stroke="#B5713A" stroke-width="2.5" opacity="0.85"/>
+    <path d="M 20 140 L 20 590 Q 20 610 -10 620" stroke="#B5713A" stroke-width="1.5" opacity="0.5"/>
+    <path d="M 34 70 L 34 605 Q 34 625 -10 635" stroke="#B5713A" stroke-width="2" opacity="0.65"/>
+    <path d="M 48 110 L 48 620 Q 48 640 -10 650" stroke="#B5713A" stroke-width="2.5" opacity="0.85"/>
   </svg>
 
   <div class="center">
