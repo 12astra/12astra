@@ -38,12 +38,17 @@
       display: block;
       mix-blend-mode: multiply;
     }
-    .nav-line {
-      height: 3px;
-      background: #B5713A;
+    .nav-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
       margin-left: 40px;
       margin-top: 6px;
     }
+    .nav-lines .line-1 { height: 2px; background: #B5713A; width: 100%; }
+    .nav-lines .line-2 { height: 1px; background: #B5713A; width: 85%; opacity: 0.7; }
+    .nav-lines .line-3 { height: 1px; background: #B5713A; width: 70%; opacity: 0.5; }
+
     .center {
       height: 100vh;
       display: flex;
@@ -92,7 +97,7 @@
     @media (max-width: 768px) {
       nav img { height: 60px; }
       .nav-top { padding: 0 20px; align-items: center; }
-      .nav-line { margin-left: 20px; }
+      .nav-lines { margin-left: 20px; }
       .register-link { font-size: 1rem; }
       .arcs { width: 80px; }
     }
@@ -106,15 +111,16 @@
     <div class="nav-top">
       <img src="darklogo.png" alt="12astra" />
     </div>
-    <div class="nav-line"></div>
+    <div class="nav-lines">
+      <div class="line-1"></div>
+      <div class="line-2"></div>
+      <div class="line-3"></div>
+    </div>
   </nav>
 
   <svg class="arcs" viewBox="0 0 120 800" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" fill="none">
-    <!-- Outer arc -->
     <path d="M 60 0 L 60 700 Q 60 780 10 780" stroke="#B5713A" stroke-width="1" opacity="0.35"/>
-    <!-- Middle arc -->
     <path d="M 40 0 L 40 720 Q 40 790 5 790" stroke="#B5713A" stroke-width="1" opacity="0.45"/>
-    <!-- Inner arc -->
     <path d="M 20 0 L 20 740 Q 20 800 0 800" stroke="#B5713A" stroke-width="1.5" opacity="0.6"/>
   </svg>
 
