@@ -85,7 +85,18 @@
       transition: color 0.3s;
     }
     .nav-info a:hover { color: #D4956A; }
-    .page { max-width: 640px; margin: 0 auto; padding: 220px 40px 80px; }
+    .curved-lines {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 8vw;
+      max-width: 80px;
+      height: 100%;
+      pointer-events: none;
+      overflow: visible;
+      z-index: 1;
+    }
+    .page { max-width: 640px; margin: 0 auto; padding: 220px 40px 80px; position: relative; z-index: 10; }
     h1 {
       font-size: 1.6rem;
       font-weight: 200;
@@ -266,6 +277,12 @@
       </div>
     </div>
   </nav>
+
+  <svg class="curved-lines" viewBox="0 0 80 700" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <path d="M 20 140 L 20 590 Q 20 620 -10 630" stroke="#B5713A" stroke-width="1.5" opacity="0.5"/>
+    <path d="M 34 70 L 34 605 Q 34 635 -10 645" stroke="#B5713A" stroke-width="2" opacity="0.65"/>
+    <path d="M 48 110 L 48 620 Q 48 650 -10 660" stroke="#B5713A" stroke-width="2.5" opacity="0.85"/>
+  </svg>
 
   <div class="page">
     <h1>Register Interest</h1>
