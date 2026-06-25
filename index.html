@@ -13,7 +13,6 @@
       background: #2C1600;
       overflow: hidden;
     }
-
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -32,13 +31,6 @@
       display: block;
       mix-blend-mode: multiply;
     }
-
-    /* ── HORIZONTAL LINES UNDER LOGO ──
-       left = where line starts from left edge
-       right = where line ends (0 = full width to right edge)
-       top = vertical position (lower number = higher up)
-       height = thickness
-    */
     .nav-lines {
       position: relative;
       height: 20px;
@@ -68,116 +60,3 @@
       right: 0px;
       top: 0px;
     }
-
-    /* ── CURVED LINES ON LEFT ──
-       width = how wide the container is
-       Each path:
-         M x y = starting point (y = how high the line starts)
-         L x y = straight line down to here (y = where curve begins)
-         Q cx cy x y = curve shape and exit point
-       stroke-width = thickness
-       opacity = visibility
-    */
-    .curved-lines {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 80px;
-      height: 100%;
-      pointer-events: none;
-      overflow: visible;
-      z-index: 1;
-    }
-
-    .center {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      position: relative;
-      z-index: 10;
-    }
-    .about-link {
-      color: #B5713A;
-      text-decoration: none;
-      font-family: 'Josefin Sans', sans-serif;
-      font-weight: 300;
-      font-size: 0.95rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      border-bottom: 1px solid rgba(181,113,58,0.4);
-      padding-bottom: 5px;
-      transition: color 0.3s, border-color 0.3s;
-    }
-    .about-link:hover { color: #D4956A; border-color: #D4956A; }
-    .register-link {
-      color: #B5713A;
-      text-decoration: none;
-      font-family: 'Josefin Sans', sans-serif;
-      font-weight: 300;
-      font-size: 1.3rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      border-bottom: 1px solid rgba(181,113,58,0.4);
-      padding-bottom: 5px;
-      transition: color 0.3s, border-color 0.3s;
-    }
-    .register-link:hover { color: #D4956A; border-color: #D4956A; }
-
-    @media (max-width: 768px) {
-      nav img { height: 60px; }
-      .nav-top { padding: 0 20px; align-items: center; }
-      .register-link { font-size: 1rem; }
-      .about-link { font-size: 0.78rem; }
-    }
-  </style>
-</head>
-<body>
-
-  <nav>
-    <div class="nav-top">
-      <img src="darklogo.png" alt="12astra" />
-    </div>
-    <div class="nav-lines">
-      <div class="line-3"></div>
-      <div class="line-2"></div>
-      <div class="line-1"></div>
-    </div>
-  </nav>
-
-  <svg class="curved-lines" viewBox="0 0 80 700" xmlns="http://www.w3.org/2000/svg" fill="none">
-
-    <!-- Outer line (leftmost) — lowest start -->
-<path
-  d="M 20 140 L 20 540 Q 20 580 -10 580"
-  stroke="#B5713A"
-  stroke-width="1.5"
-  opacity="0.5"
-/>
-<!-- Middle line — highest start -->
-<path
-  d="M 34 70 L 34 555 Q 34 595 -10 595"
-  stroke="#B5713A"
-  stroke-width="2"
-  opacity="0.65"
-/>
-<!-- Inner line (rightmost) — second highest start -->
-<path
-  d="M 48 110 L 48 570 Q 48 610 -10 610"
-  stroke="#B5713A"
-  stroke-width="2.5"
-  opacity="0.85"
-/>
-    />
-
-  </svg>
-
-  <div class="center">
-    <a class="about-link" href="about.html">About</a>
-    <a class="register-link" href="register.html">Register Interest</a>
-  </div>
-
-</body>
-</html>
