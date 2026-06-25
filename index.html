@@ -34,64 +34,64 @@
     }
 
     /* ── HORIZONTAL LINES UNDER LOGO ──
-       Each line is positioned absolutely.
-       left = where it starts from the left edge of the page
-       right = where it ends (0 = goes to right edge)
-       top = vertical position within .nav-lines container
-       height = thickness of the line
+       left = where line starts from left edge
+       right = where line ends (0 = full width to right edge)
+       top = vertical position (lower number = higher up)
+       height = thickness
     */
     .nav-lines {
       position: relative;
-      height: 20px;       /* container height — increase if lines get cut off */
-      margin-top: -14px;  /* how close lines sit to the logo — negative pulls them up */
+      height: 20px;       /* container height */
+      margin-top: -14px;  /* pulls lines closer to logo */
     }
 
     /* Bottom line — longest, sits directly under logo */
     .line-1 {
       position: absolute;
-      height: 1px;        /* thickness */
+      height: 1px;
       background: #B5713A;
-      left: 40px;         /* starts at left edge of logo */
-      right: 0px;         /* goes to right edge of page */
-      top: 14px;          /* vertical position — higher number = lower */
+      left: 40px;
+      right: 0px;
+      top: 14px;
     }
 
     /* Middle line — starts after the "a" in astra */
     .line-2 {
       position: absolute;
-      height: 2px;        /* thickness */
+      height: 2px;
       background: #B5713A;
-      left: 11%;          /* starts 11% from left — increase to push right */
-      right: 0px;         /* goes to right edge */
-      top: 7px;           /* vertical position */
+      left: 11%;
+      right: 0px;
+      top: 7px;
     }
 
-    /* Top line — sits above middle line */
+    /* Top line */
     .line-3 {
       position: absolute;
-      height: 2px;        /* thickness */
+      height: 2px;
       background: #B5713A;
-      left: 15%;          /* starts 15% from left — increase to push right */
-      right: 0px;         /* goes to right edge */
-      top: 0px;           /* vertical position — 0 = highest */
+      left: 15%;
+      right: 0px;
+      top: 0px;
     }
 
-    /* ── CURVED VERTICAL LINES ON LEFT ──
-       This is an SVG positioned on the left side of the page.
-       width = how wide the SVG container is
-       The viewBox controls the internal coordinate system.
-       Each path uses:
-         M x y = starting point (x = horizontal, y = vertical from top)
-         L x y = straight line to this point
-         Q cx cy x y = curve — cx/cy is the control point, x/y is end point
-       stroke-width = line thickness
-       opacity = how visible the line is (0 = invisible, 1 = full)
+    /* ── CURVED LINES ON LEFT ──
+       The SVG sits on the left side of the page.
+       width = how wide the container is (controls how far right lines reach)
+       Each path:
+         M x y = starting point (x = horizontal pos, y = where line starts vertically)
+         L x y = straight line down to here (y = where curve begins)
+         Q cx cy x y = curve control point and end point
+           cx cy = pull point for curve shape
+           x y = where line exits (negative x = exits off left edge)
+       stroke-width = thickness
+       opacity = visibility (0-1)
     */
     .curved-lines {
       position: fixed;
       left: 0;
       top: 0;
-      width: 60px;        /* width of SVG container — increase to move lines right */
+      width: 40px;        /* width of SVG container */
       height: 100%;
       pointer-events: none;
       overflow: visible;
@@ -114,7 +114,7 @@
       text-decoration: none;
       font-family: 'Josefin Sans', sans-serif;
       font-weight: 300;
-      font-size: 0.95rem;         /* size of About text */
+      font-size: 0.95rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       border-bottom: 1px solid rgba(181,113,58,0.4);
@@ -128,7 +128,7 @@
       text-decoration: none;
       font-family: 'Josefin Sans', sans-serif;
       font-weight: 300;
-      font-size: 1.3rem;          /* size of Register Interest text */
+      font-size: 1.3rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       border-bottom: 1px solid rgba(181,113,58,0.4);
@@ -159,47 +159,40 @@
   </nav>
 
   <!--
-    CURVED LINES SVG
-    viewBox="0 0 60 500" means the internal canvas is 60 wide and 500 tall.
-    Each path:
-      M x y  = where the line starts (top of line)
-      L x y  = draws straight down to this point
-      Q cx cy x y = curve:
-        cx cy = control point (pulls the curve — lower cx = more curve to left)
-        x y   = where the line ends (off left edge of page = negative x)
-
-    To adjust:
-      - Move line left/right: change the M and L x values
-      - Change where line starts vertically: change M y value
-      - Change where curve begins: change L y value
-      - Change curve shape: adjust Q cx cy values
-      - Change line thickness: stroke-width
-      - Change opacity: opacity
+    CURVED LINES
+    M x y  = where line starts (x = how far right, y = how far down)
+    L x y  = draws straight down to here (increase y to start curve lower)
+    Q cx cy x y = curve:
+      cx = horizontal pull (same as line x keeps it tight)
+      cy = vertical pull (between L y and end y)
+      x y = exit point (negative x exits off left edge)
+    stroke-width = thickness
+    opacity = visibility
   -->
-  <svg class="curved-lines" viewBox="0 0 60 500" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <svg class="curved-lines" viewBox="0 0 40 500" xmlns="http://www.w3.org/2000/svg" fill="none">
 
     <!-- Outer line (leftmost) -->
     <path
-      d="M 10 170 L 10 390 Q 10 430 -30 430"
+      d="M 6 170 L 6 440 Q 6 452 -30 452"
       stroke="#B5713A"
-      stroke-width="1"       /* thickness */
-      opacity="0.5"          /* visibility */
+      stroke-width="1"
+      opacity="0.5"
     />
 
     <!-- Middle line -->
     <path
-      d="M 20 170 L 20 410 Q 20 450 -30 450"
+      d="M 10 170 L 10 444 Q 10 456 -30 456"
       stroke="#B5713A"
-      stroke-width="1.5"     /* thickness */
-      opacity="0.65"         /* visibility */
+      stroke-width="1.5"
+      opacity="0.65"
     />
 
     <!-- Inner line (rightmost, most visible) -->
     <path
-      d="M 30 170 L 30 430 Q 30 470 -30 470"
+      d="M 14 170 L 14 448 Q 14 460 -30 460"
       stroke="#B5713A"
-      stroke-width="2"       /* thickness */
-      opacity="0.85"         /* visibility */
+      stroke-width="2"
+      opacity="0.85"
     />
 
   </svg>
