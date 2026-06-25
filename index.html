@@ -72,7 +72,7 @@
     /* ── CURVED LINES ON LEFT ──
        width = how wide the container is
        Each path:
-         M x y = starting point (y = how high the line starts — lower number = higher up)
+         M x y = starting point (y = how high the line starts)
          L x y = straight line down to here (y = where curve begins)
          Q cx cy x y = curve shape and exit point
        stroke-width = thickness
@@ -147,11 +147,11 @@
     </div>
   </nav>
 
-  <svg class="curved-lines" viewBox="0 0 80 600" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <svg class="curved-lines" viewBox="0 0 80 700" xmlns="http://www.w3.org/2000/svg" fill="none">
 
     <!-- Outer line (leftmost) — lowest start -->
     <path
-      d="M 20 90 L 20 450 Q 20 490 -10 488"
+      d="M 20 90 L 20 530 Q 20 570 -10 568"
       stroke="#B5713A"
       stroke-width="1.5"
       opacity="0.5"
@@ -159,7 +159,7 @@
 
     <!-- Middle line — highest start -->
     <path
-      d="M 34 70 L 34 462 Q 34 500 -10 502"
+      d="M 34 70 L 34 542 Q 34 580 -10 582"
       stroke="#B5713A"
       stroke-width="2"
       opacity="0.65"
@@ -167,7 +167,7 @@
 
     <!-- Inner line (rightmost) — second highest start -->
     <path
-      d="M 48 80 L 48 474 Q 48 514 -10 516"
+      d="M 48 80 L 48 554 Q 48 594 -10 596"
       stroke="#B5713A"
       stroke-width="2.5"
       opacity="0.85"
