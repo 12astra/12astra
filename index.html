@@ -22,7 +22,6 @@
     .nav-top {
       display: flex;
       align-items: flex-end;
-      justify-content: space-between;
       padding: 0 40px;
     }
     nav img {
@@ -30,44 +29,66 @@
       display: block;
       mix-blend-mode: multiply;
     }
+
+    /* ── LINES ── adjust each one independently */
     .nav-lines {
       position: relative;
       height: 20px;
+      margin-top: -14px;
     }
+
+    /* Bottom line — full width, sits directly under logo */
     .line-1 {
       position: absolute;
-      height: 2px;
+      height: 2px;           /* thickness */
       background: #B5713A;
-      width: 90%;
-      left: 40px;
-      top: 6px;
+      left: 40px;            /* where it starts from the left */
+      right: 0px;            /* where it ends from the right edge */
+      top: 14px;             /* vertical position */
     }
+
+    /* Middle line — starts after the "a" in astra */
     .line-2 {
       position: absolute;
-      height: 2px;
+      height: 2px;           /* thickness */
       background: #B5713A;
-      width: 60%;
-      left: 40px;
-      top: 0px;
+      left: 25%;             /* where it starts from the left */
+      right: 0px;            /* where it ends from the right edge */
+      top: 8px;              /* vertical position */
     }
-    .nav-info a {
+
+    /* Top line — identical to middle, sits above it */
+    .line-3 {
+      position: absolute;
+      height: 2px;           /* thickness */
+      background: #B5713A;
+      left: 25%;             /* where it starts from the left */
+      right: 0px;            /* where it ends from the right edge */
+      top: 2px;              /* vertical position */
+    }
+
+    .center {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    .about-link {
       color: #B5713A;
       text-decoration: none;
       font-family: 'Josefin Sans', sans-serif;
       font-weight: 300;
-      font-size: 0.78rem;
+      font-size: 0.95rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      transition: color 0.3s;
+      border-bottom: 1px solid rgba(181,113,58,0.4);
+      padding-bottom: 5px;
+      transition: color 0.3s, border-color 0.3s;
     }
-    .nav-info a:hover { color: #D4956A; }
-    .center {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .center a {
+    .about-link:hover { color: #D4956A; border-color: #D4956A; }
+    .register-link {
       color: #B5713A;
       text-decoration: none;
       font-family: 'Josefin Sans', sans-serif;
@@ -79,14 +100,13 @@
       padding-bottom: 5px;
       transition: color 0.3s, border-color 0.3s;
     }
-    .center a:hover {
-      color: #D4956A;
-      border-color: #D4956A;
-    }
+    .register-link:hover { color: #D4956A; border-color: #D4956A; }
+
     @media (max-width: 768px) {
       nav img { height: 60px; }
       .nav-top { padding: 0 20px; align-items: center; }
-      .center a { font-size: 1rem; }
+      .register-link { font-size: 1rem; }
+      .about-link { font-size: 0.78rem; }
     }
   </style>
 </head>
@@ -94,17 +114,18 @@
   <nav>
     <div class="nav-top">
       <img src="darklogo.png" alt="12astra" />
-      <div class="nav-info">
-        <a href="about.html">About</a>
-      </div>
     </div>
     <div class="nav-lines">
-      <div class="line-1"></div>
+      <div class="line-3"></div>
       <div class="line-2"></div>
+      <div class="line-1"></div>
     </div>
   </nav>
+
   <div class="center">
-    <a href="register.html">Register Interest</a>
+    <a class="about-link" href="about.html">About</a>
+    <a class="register-link" href="register.html">Register Interest</a>
   </div>
+
 </body>
 </html>
