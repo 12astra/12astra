@@ -38,14 +38,16 @@
       height: 20px;
       margin-top: -14px;
     }
+    /* Bottom line — always starts under left edge of logo */
     .line-1 {
       position: absolute;
       height: 1px;
       background: #B5713A;
-      left: 13vw;
+      left: 3vw;
       right: 0px;
       top: 14px;
     }
+    /* Middle line — starts after the "a" in astra */
     .line-2 {
       position: absolute;
       height: 2px;
@@ -54,6 +56,7 @@
       right: 0px;
       top: 7px;
     }
+    /* Top line */
     .line-3 {
       position: absolute;
       height: 2px;
@@ -110,9 +113,8 @@
     }
     .register-link:hover { color: #D4956A; border-color: #D4956A; }
     @media (max-width: 768px) {
-      .line-1 { left: 13vw; }
-      .line-2 { left: 22vw; }
-      .line-3 { left: 26vw; }
+      .line-2 { left: 38vw; }
+      .line-3 { left: 44vw; }
       .register-link { font-size: 1rem; }
       .about-link { font-size: 0.78rem; }
     }
