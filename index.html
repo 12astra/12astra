@@ -41,8 +41,8 @@
     */
     .nav-lines {
       position: relative;
-      height: 20px;       /* container height */
-      margin-top: -14px;  /* pulls lines closer to logo */
+      height: 20px;
+      margin-top: -14px;
     }
 
     /* Bottom line — longest, sits directly under logo */
@@ -55,7 +55,7 @@
       top: 14px;
     }
 
-    /* Middle line — starts after the "a" in astra */
+    /* Middle line */
     .line-2 {
       position: absolute;
       height: 2px;
@@ -76,14 +76,11 @@
     }
 
     /* ── CURVED LINES ON LEFT ──
-       The SVG sits on the left side of the page.
-       width = how wide the container is (controls how far right lines reach)
+       width = how wide the container is
        Each path:
-         M x y = starting point (x = horizontal pos, y = where line starts vertically)
+         M x y = starting point (x = horizontal, y = where line starts vertically)
          L x y = straight line down to here (y = where curve begins)
-         Q cx cy x y = curve control point and end point
-           cx cy = pull point for curve shape
-           x y = where line exits (negative x = exits off left edge)
+         Q cx cy x y = curve (negative x exits off left edge)
        stroke-width = thickness
        opacity = visibility (0-1)
     */
@@ -91,7 +88,7 @@
       position: fixed;
       left: 0;
       top: 0;
-      width: 40px;        /* width of SVG container */
+      width: 80px;        /* increase to move lines further right */
       height: 100%;
       pointer-events: none;
       overflow: visible;
@@ -104,7 +101,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 20px;          /* space between About and Register Interest */
+      gap: 20px;
       position: relative;
       z-index: 10;
     }
@@ -158,41 +155,30 @@
     </div>
   </nav>
 
-  <!--
-    CURVED LINES
-    M x y  = where line starts (x = how far right, y = how far down)
-    L x y  = draws straight down to here (increase y to start curve lower)
-    Q cx cy x y = curve:
-      cx = horizontal pull (same as line x keeps it tight)
-      cy = vertical pull (between L y and end y)
-      x y = exit point (negative x exits off left edge)
-    stroke-width = thickness
-    opacity = visibility
-  -->
-  <svg class="curved-lines" viewBox="0 0 40 500" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <svg class="curved-lines" viewBox="0 0 80 500" xmlns="http://www.w3.org/2000/svg" fill="none">
 
     <!-- Outer line (leftmost) -->
     <path
-      d="M 6 170 L 6 440 Q 6 452 -30 452"
+      d="M 20 80 L 20 400 Q 20 430 -30 430"
       stroke="#B5713A"
-      stroke-width="1"
-      opacity="0.5"
+      stroke-width="1.5"     /* thickness */
+      opacity="0.5"          /* visibility */
     />
 
     <!-- Middle line -->
     <path
-      d="M 10 170 L 10 444 Q 10 456 -30 456"
+      d="M 34 80 L 34 412 Q 34 442 -30 442"
       stroke="#B5713A"
-      stroke-width="1.5"
-      opacity="0.65"
+      stroke-width="2"       /* thickness */
+      opacity="0.65"         /* visibility */
     />
 
     <!-- Inner line (rightmost, most visible) -->
     <path
-      d="M 14 170 L 14 448 Q 14 460 -30 460"
+      d="M 48 80 L 48 424 Q 48 454 -30 454"
       stroke="#B5713A"
-      stroke-width="2"
-      opacity="0.85"
+      stroke-width="2.5"     /* thickness */
+      opacity="0.85"         /* visibility */
     />
 
   </svg>
