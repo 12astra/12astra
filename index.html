@@ -31,21 +31,24 @@
       mix-blend-mode: multiply;
     }
     .nav-lines {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-left: 40px;
-      margin-top: 6px;
+      position: relative;
+      height: 20px;
     }
     .line-1 {
+      position: absolute;
       height: 2px;
       background: #B5713A;
-      width: 100%;
+      width: 90%;
+      left: 40px;
+      top: 6px;
     }
     .line-2 {
+      position: absolute;
       height: 2px;
       background: #B5713A;
-      width: 100%;
+      width: 60%;
+      left: 40px;
+      top: 0px;
     }
     .nav-info a {
       color: #B5713A;
@@ -83,7 +86,6 @@
     @media (max-width: 768px) {
       nav img { height: 60px; }
       .nav-top { padding: 0 20px; align-items: center; }
-      .nav-lines { margin-left: 20px; }
       .center a { font-size: 1rem; }
     }
   </style>
