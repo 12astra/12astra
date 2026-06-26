@@ -40,14 +40,37 @@
       max-width: 200px;
       display: block;
     }
-    .nav-lines-svg {
-      display: block;
-      width: 100%;
-      overflow: visible;
-      margin-top: 0;
+    .nav-lines {
+      position: relative;
+      height: 20px;
+      margin-top: 0px;
     }
-    .nav-left {
-      overflow: visible;
+    .line-1 {
+      position: absolute;
+      height: 2px;
+      background: #B5713A;
+      left: 0px;
+      right: 0px;
+      top: 2px;
+      opacity: 0.85;
+    }
+    .line-2 {
+      position: absolute;
+      height: 2px;
+      background: #B5713A;
+      left: 10vw;
+      right: 0px;
+      top: -5px;
+      opacity: 0.65;
+    }
+    .line-3 {
+      position: absolute;
+      height: 1px;
+      background: #B5713A;
+      left: 13vw;
+      right: 0px;
+      top: -12px;
+      opacity: 0.5;
     }
     .curved-lines {
       position: fixed;
@@ -110,11 +133,11 @@
     <div class="nav-top">
       <div class="nav-left">
         <a href="index.html"><img src="logoletter.png" alt="12astra" /></a>
-        <svg class="nav-lines-svg" viewBox="0 -15 1000 20" width="100%" height="20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <path d="M 130 -12 L 985 -12 C 989 -12 992 -15 992 -19 L 992 -2000" stroke="#B5713A" stroke-width="1" opacity="0.5" vector-effect="non-scaling-stroke"/>
-          <path d="M 100 -5 L 985 -5 C 993 -5 999 -11 999 -19 L 999 -2000" stroke="#B5713A" stroke-width="2" opacity="0.65" vector-effect="non-scaling-stroke"/>
-          <path d="M 0 2 L 985 2 C 997 2 1006 -7 1006 -19 L 1006 -2000" stroke="#B5713A" stroke-width="2" opacity="0.85" vector-effect="non-scaling-stroke"/>
-        </svg>
+        <div class="nav-lines">
+          <div class="line-3"></div>
+          <div class="line-2"></div>
+          <div class="line-1"></div>
+        </div>
       </div>
     </div>
   </nav>
