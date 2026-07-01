@@ -36,6 +36,18 @@
       flex: 1;
     }
     .nav-left a { display: block; line-height: 0; }
+    .nav-left a.logo-text {
+      line-height: 1;
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 300;
+      font-size: 1.8rem;
+      color: #B5713A;
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      text-transform: uppercase;
+      position: relative;
+      top: 14px;
+    }
     nav img {
       height: 5.95vw;
       max-height: 76.5px;
@@ -267,6 +279,7 @@
     }
     @media (max-width: 768px) {
       nav img { height: 23.8px; width: auto; max-width: 102px; min-height: unset; }
+      .logo-text { font-size: 1.1rem; top: 6px; }
       .line-1 { left: 47vw; }
       .line-2 { left: 38vw; }
       .line-3 { left: 44vw; }
@@ -277,7 +290,7 @@
   <nav>
     <div class="nav-top">
       <div class="nav-left">
-        <a href="index.html"><img src="logoletter.png" alt="12astra" /></a>
+        <a href="index.html" class="logo-text">12ASTRA</a>
         <div class="nav-lines">
           <div class="line-3"></div>
           <div class="line-2"></div>
