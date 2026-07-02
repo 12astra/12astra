@@ -40,14 +40,14 @@
       line-height: 1;
       font-family: 'Josefin Sans', sans-serif;
       font-weight: 300;
-      font-size: 1.8rem;
       color: #B5713A;
       letter-spacing: 0.15em;
       text-decoration: none;
-      text-transform: uppercase;
       position: relative;
       top: 14px;
     }
+    .logo-num { font-size: 2.4rem; }
+    .logo-word { font-size: 1.1rem; text-transform: lowercase; }
     nav img {
       height: 5.95vw;
       max-height: 76.5px;
@@ -168,7 +168,9 @@
     a.email:hover { color: #D4956A; }
     @media (max-width: 768px) {
       nav img { height: 23.8px; width: auto; max-width: 102px; min-height: unset; }
-      .logo-text { font-size: 1.1rem; top: 6px; }
+      .logo-text { top: 6px; }
+      .logo-num { font-size: 1.5rem; }
+      .logo-word { font-size: 0.75rem; }
       .line-1 { left: 47vw; }
       .line-2 { left: 38vw; }
       .line-3 { left: 44vw; }
@@ -179,7 +181,7 @@
   <nav>
     <div class="nav-top">
       <div class="nav-left">
-        <a href="index.html" class="logo-text">12ASTRA</a>
+        <a href="index.html" class="logo-text"><span class="logo-num">12</span><span class="logo-word">astra</span></a>
         <div class="nav-lines">
           <div class="line-3"></div>
           <div class="line-2"></div>
