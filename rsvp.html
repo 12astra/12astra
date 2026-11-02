@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>12astra — RSVP</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      min-height: 100%;
+      background: #0E1420;
+      color: #B5713A;
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 200;
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 0 0 0;
+      z-index: 100;
+      background: #0E1420;
+    }
+    .nav-top {
+      display: flex;
+      align-items: flex-end;
+      padding: 0 0 0 3vw;
+      position: relative;
+    }
+    .nav-left {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .nav-left a { display: block; line-height: 0; }
+    nav img {
+      height: 5.95vw;
+      max-height: 76.5px;
+      min-height: 23.8px;
+      width: auto;
+      max-width: 170px;
+      display: block;
+      position: relative;
+      top: 14px;
+    }
+    .nav-lines {
+      position: relative;
+      height: 20px;
+      margin-top: 0px;
+      z-index: 0;
+    }
+    .line-1 {
+      position: absolute;
+      height: 2px;
+      background: #B5713A;
+      left: 16vw;
+      right: 3vw;
+      top: 2px;
+      opacity: 0.85;
+    }
+    .line-2 {
+      position: absolute;
+      height: 2px;
+      background: #B5713A;
+      left: 10vw;
+      right: 0px;
+      top: -5px;
+      opacity: 0.65;
+    }
+    .line-3 {
+      position: absolute;
+      height: 1px;
+      background: #B5713A;
+      left: 13vw;
+      right: 0px;
+      top: -12px;
+      opacity: 0.5;
+    }
+    .curved-lines {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 8vw;
+      max-width: 80px;
+      height: 100%;
+      pointer-events: none;
+      overflow: visible;
+      z-index: 1;
+    }
+    .page {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 200px 40px 100px;
+      position: relative;
+      z-index: 10;
+    }
+    .kicker {
+      font-size: 1rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .tagline {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+      color: rgba(181,113,58,0.85);
+      margin-bottom: 28px;
+    }
+    .event-meta {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(181,113,58,0.7);
+      line-height: 2;
+      margin-bottom: 56px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(181,113,58,0.3);
+    }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 200;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .field { margin-bottom: 28px; }
+    label {
+      display: block;
+      font-size: 0.76rem;
+      font-weight: 200;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: #B5713A;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(181,113,58,0.4);
+      color: #D4956A;
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 200;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      padding: 8px 0;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    input:focus { border-bottom-color: #B5713A; }
+    .note {
+      font-size: 0.75rem;
+      line-height: 1.8;
+      color: rgba(181,113,58,0.6);
+      letter-spacing: 0.03em;
+      margin: 36px 0 40px;
+      padding: 16px 18px;
+      border-left: 2px solid rgba(181,113,58,0.4);
+    }
+    button {
+      background: transparent;
+      border: 1px solid #B5713A;
+      color: #B5713A;
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 200;
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 14px 48px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s, opacity 0.3s;
+      width: 100%;
+    }
+    button:hover:not(:disabled) { background: #B5713A; color: #0E1420; }
+    button:disabled { opacity: 0.4; cursor: default; }
+    .error {
+      display: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      color: #D98C6B;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    #payment-screen { display: none; }
+    .payment-intro {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      letter-spacing: 0.03em;
+      color: rgba(181,113,58,0.85);
+      margin-bottom: 36px;
+    }
+    .payment-details {
+      border: 1px solid rgba(181,113,58,0.3);
+      padding: 28px 24px;
+      margin-bottom: 28px;
+    }
+    .detail-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(181,113,58,0.15);
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
+    }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-row .label { color: rgba(181,113,58,0.6); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; }
+    .detail-row .value { color: #D4956A; text-align: right; }
+    .detail-row.total .value { font-weight: 300; color: #B5713A; }
+    .copy-btn {
+      width: auto;
+      display: inline-block;
+      padding: 4px 12px;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      margin-left: 10px;
+      flex-shrink: 0;
+    }
+    .copy-row { display: flex; align-items: center; }
+    .payment-note {
+      font-size: 0.78rem;
+      line-height: 1.9;
+      color: rgba(181,113,58,0.7);
+      letter-spacing: 0.03em;
+    }
+    @media (max-width: 768px) {
+      nav img { height: 23.8px; width: auto; max-width: 102px; min-height: unset; }
+      .line-1 { left: 47vw; }
+      .line-2 { left: 38vw; }
+      .line-3 { left: 44vw; }
+      .page { padding: 170px 24px 80px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-top">
+      <div class="nav-left">
+        <a href="index.html"><img src="logoletter.png" alt="12astra" /></a>
+        <div class="nav-lines">
+          <div class="line-3"></div>
+          <div class="line-2"></div>
+          <div class="line-1"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <svg class="curved-lines" viewBox="0 0 80 700" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <path d="M 20 140 L 20 607 C 20 611 16 615 12 615 L -30 615" stroke="#B5713A" stroke-width="1.5" opacity="0.5"/>
+    <path d="M 34 70 L 34 607 C 34 619 24 629 12 629 L -30 629" stroke="#B5713A" stroke-width="2" opacity="0.65"/>
+    <path d="M 48 110 L 48 607 C 48 627 32 643 12 643 L -30 643" stroke="#B5713A" stroke-width="2.5" opacity="0.85"/>
+  </svg>
+
+  <div class="page">
+    <div id="rsvp-screen">
+      <p class="kicker">12ASTRA</p>
+      <p class="tagline">An evening dedicated to meeting and dining with new people.</p>
+      <p class="event-meta">Friday, 4 December 2026<br>7:30 PM</p>
+
+      <h2>RSVP</h2>
+
+      <form id="rsvp-form">
+        <div class="field">
+          <label for="fullName">Full name</label>
+          <input type="text" id="fullName" name="fullName" required />
+        </div>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="field">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+        <div class="field">
+          <label for="guestName">Guest's full name</label>
+          <input type="text" id="guestName" name="guestName" required />
+        </div>
+
+        <p class="note">Every guest must bring a plus-one who hasn't already been invited, preferably someone the rest of the table hasn't met.</p>
+
+        <p class="error" id="form-error">Something went wrong saving your RSVP. Please check your connection and try again.</p>
+
+        <button type="submit" id="submit-btn">Continue</button>
+      </form>
+    </div>
+
+    <div id="payment-screen">
+      <h2>Complete Your Reservation</h2>
+      <p class="payment-intro">
+        Thank you for registering your interest in joining us at the table.<br><br>
+        To confirm your places, please make a bank transfer using the details below.
+      </p>
+
+      <div class="payment-details">
+        <div class="detail-row">
+          <span class="label">Account name</span>
+          <span class="value">XXXXX</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Sort code</span>
+          <span class="copy-row">
+            <span class="value" id="sort-code">XX-XX-XX</span>
+            <button type="button" class="copy-btn" data-copy="sort-code">Copy</button>
+          </span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Account number</span>
+          <span class="copy-row">
+            <span class="value" id="account-number">XXXXXXXX</span>
+            <button type="button" class="copy-btn" data-copy="account-number">Copy</button>
+          </span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Price per person</span>
+          <span class="value">£45</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Number of guests</span>
+          <span class="value">2</span>
+        </div>
+        <div class="detail-row total">
+          <span class="label">Total to pay</span>
+          <span class="value">£90</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Payment reference</span>
+          <span class="value" id="payment-reference"></span>
+        </div>
+      </div>
+
+      <p class="payment-note">Please use your full name as the payment reference so we can identify your transfer. Your reservation will be confirmed once payment has been received.</p>
+    </div>
+  </div>
+
+  <script>
+    // Deployed Google Apps Script Web App URL (ends in /exec). Set once the
+    // Apps Script deployment is created -- see setup walkthrough.
+    const APPS_SCRIPT_URL = 'REPLACE_WITH_DEPLOYED_APPS_SCRIPT_URL';
+
+    const form = document.getElementById('rsvp-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const formError = document.getElementById('form-error');
+    const rsvpScreen = document.getElementById('rsvp-screen');
+    const paymentScreen = document.getElementById('payment-screen');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      formError.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Saving…';
+
+      const fullName = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const guestName = document.getElementById('guestName').value.trim();
+
+      const payload = { fullName, email, phone, guestName };
+
+      try {
+        // No explicit Content-Type header: a string body defaults to
+        // text/plain, which keeps this a CORS-safelisted "simple request"
+        // and avoids a preflight OPTIONS call Apps Script can't answer.
+        // Apps Script reads the raw body and parses it as JSON itself.
+        const response = await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) throw new Error('Request failed');
+        const result = await response.json();
+        if (!result.success) throw new Error(result.error || 'Save failed');
+
+        // Only now -- after a verified, successful save -- do we advance
+        // to the payment screen. Never show payment details on a guess.
+        document.getElementById('payment-reference').textContent = fullName;
+        rsvpScreen.style.display = 'none';
+        paymentScreen.style.display = 'block';
+        window.scrollTo(0, 0);
+      } catch (err) {
+        formError.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Continue';
+      }
+    });
+
+    document.querySelectorAll('.copy-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const text = document.getElementById(btn.dataset.copy).textContent;
+        navigator.clipboard.writeText(text).then(function () {
+          const original = btn.textContent;
+          btn.textContent = 'Copied';
+          setTimeout(function () { btn.textContent = original; }, 1500);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
