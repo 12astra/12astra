@@ -364,11 +364,14 @@
         </div>
         <div class="detail-row">
           <span class="label">Payment reference</span>
-          <span class="value" id="payment-reference"></span>
+          <span class="copy-row">
+            <span class="value" id="payment-reference"></span>
+            <button type="button" class="copy-btn" data-copy="payment-reference">Copy</button>
+          </span>
         </div>
       </div>
 
-      <p class="payment-note">Please use your full name as the payment reference so we can identify your transfer. Your reservation will be confirmed once payment has been received.</p>
+      <p class="payment-note">Please use the payment reference above exactly as shown, so we can identify your transfer. Your reservation will be confirmed once payment has been received.</p>
     </div>
   </div>
 
@@ -419,7 +422,7 @@
 
         // Only now -- after a verified, successful save -- do we advance
         // to the payment screen. Never show payment details on a guess.
-        document.getElementById('payment-reference').textContent = primaryFirstName + ' ' + primaryLastName;
+        document.getElementById('payment-reference').textContent = primaryLastName + ' Supper';
         rsvpScreen.style.display = 'none';
         paymentScreen.style.display = 'block';
         window.scrollTo(0, 0);
