@@ -127,6 +127,19 @@
       text-transform: uppercase;
       margin-bottom: 32px;
     }
+    .section-divider {
+      margin-top: 12px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(181,113,58,0.3);
+    }
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 200;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(181,113,58,0.9);
+      margin-bottom: 24px;
+    }
     .field { margin-bottom: 28px; }
     label {
       display: block;
@@ -268,26 +281,44 @@
       <h2>RSVP</h2>
 
       <form id="rsvp-form">
+        <h3 class="section-label">Your Details</h3>
         <div class="field">
-          <label for="fullName">Full name</label>
-          <input type="text" id="fullName" name="fullName" required />
+          <label for="primaryFirstName">First name</label>
+          <input type="text" id="primaryFirstName" name="primaryFirstName" required />
         </div>
         <div class="field">
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="email" required />
+          <label for="primaryLastName">Last name</label>
+          <input type="text" id="primaryLastName" name="primaryLastName" required />
         </div>
         <div class="field">
-          <label for="phone">Phone number</label>
-          <input type="tel" id="phone" name="phone" required />
+          <label for="primaryEmail">Email address</label>
+          <input type="email" id="primaryEmail" name="primaryEmail" required />
         </div>
         <div class="field">
-          <label for="guestName">Guest's full name</label>
-          <input type="text" id="guestName" name="guestName" required />
+          <label for="primaryPhone">Phone number</label>
+          <input type="tel" id="primaryPhone" name="primaryPhone" required />
         </div>
 
+        <h3 class="section-label section-divider">Your Guest's Details</h3>
         <p class="note">Every guest must bring a plus-one who hasn't already been invited, preferably someone the rest of the table hasn't met.</p>
+        <div class="field">
+          <label for="guestFirstName">First name</label>
+          <input type="text" id="guestFirstName" name="guestFirstName" required />
+        </div>
+        <div class="field">
+          <label for="guestLastName">Last name</label>
+          <input type="text" id="guestLastName" name="guestLastName" required />
+        </div>
+        <div class="field">
+          <label for="guestEmail">Email address</label>
+          <input type="email" id="guestEmail" name="guestEmail" required />
+        </div>
+        <div class="field">
+          <label for="guestPhone">Phone number</label>
+          <input type="tel" id="guestPhone" name="guestPhone" required />
+        </div>
 
-        <p class="error" id="form-error">Something went wrong saving your RSVP. Please check your connection and try again.</p>
+        <p class="error" id="form-error"></p>
 
         <button type="submit" id="submit-btn">Continue</button>
       </form>
@@ -358,12 +389,19 @@
       submitBtn.disabled = true;
       submitBtn.textContent = 'Saving…';
 
-      const fullName = document.getElementById('fullName').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const guestName = document.getElementById('guestName').value.trim();
+      const primaryFirstName = document.getElementById('primaryFirstName').value.trim();
+      const primaryLastName = document.getElementById('primaryLastName').value.trim();
+      const primaryEmail = document.getElementById('primaryEmail').value.trim();
+      const primaryPhone = document.getElementById('primaryPhone').value.trim();
+      const guestFirstName = document.getElementById('guestFirstName').value.trim();
+      const guestLastName = document.getElementById('guestLastName').value.trim();
+      const guestEmail = document.getElementById('guestEmail').value.trim();
+      const guestPhone = document.getElementById('guestPhone').value.trim();
 
-      const payload = { fullName, email, phone, guestName };
+      const payload = {
+        primaryFirstName, primaryLastName, primaryEmail, primaryPhone,
+        guestFirstName, guestLastName, guestEmail, guestPhone,
+      };
 
       try {
         // No explicit Content-Type header: a string body defaults to
@@ -375,17 +413,18 @@
           body: JSON.stringify(payload),
         });
 
-        if (!response.ok) throw new Error('Request failed');
+        if (!response.ok) throw new Error('Something went wrong saving your RSVP. Please check your connection and try again.');
         const result = await response.json();
-        if (!result.success) throw new Error(result.error || 'Save failed');
+        if (!result.success) throw new Error(result.error || 'Something went wrong saving your RSVP. Please try again.');
 
         // Only now -- after a verified, successful save -- do we advance
         // to the payment screen. Never show payment details on a guess.
-        document.getElementById('payment-reference').textContent = fullName;
+        document.getElementById('payment-reference').textContent = primaryFirstName + ' ' + primaryLastName;
         rsvpScreen.style.display = 'none';
         paymentScreen.style.display = 'block';
         window.scrollTo(0, 0);
       } catch (err) {
+        formError.textContent = err.message;
         formError.style.display = 'block';
         submitBtn.disabled = false;
         submitBtn.textContent = 'Continue';
